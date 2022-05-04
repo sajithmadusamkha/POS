@@ -1,6 +1,5 @@
 package dao;
 
-import db.DBConnection;
 import model.ItemDTO;
 
 import java.math.BigDecimal;

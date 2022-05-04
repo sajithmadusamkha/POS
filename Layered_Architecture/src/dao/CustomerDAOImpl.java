@@ -1,7 +1,5 @@
 package dao;
 
-import db.DBConnection;
-import javafx.scene.input.InputMethodTextRun;
 import model.CustomerDTO;
 
 import java.sql.*;
