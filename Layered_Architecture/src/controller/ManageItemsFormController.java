@@ -214,8 +214,7 @@ public class ManageItemsFormController {
 
     private String generateNewId() {
         try {
-            String id = CrudDAO.generateNewId();
-            return id;
+            return itemDAO.generateNewId();
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         } catch (ClassNotFoundException e) {
