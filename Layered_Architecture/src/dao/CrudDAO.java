@@ -3,7 +3,7 @@ package dao;
 import java.sql.*;
 import java.util.ArrayList;
 
-public interface CrudDAO<T,ID> {
+public interface CrudDAO<T,ID> extends SuperDAO {
     ArrayList<T> getAll() throws SQLException, ClassNotFoundException;
 
     T search(ID id)throws SQLException, ClassNotFoundException;
