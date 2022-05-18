@@ -15,4 +15,23 @@ public class CustomerBOImpl {
         return customerDAO.getAll();
     }
 
+    public boolean saveCustomer(CustomerDTO customerDTO) throws SQLException, ClassNotFoundException {
+        return customerDAO.save(customerDTO);
+    }
+
+    public boolean updateCustomer(CustomerDTO customerDTO) throws SQLException, ClassNotFoundException {
+        return customerDAO.update(customerDTO);
+    }
+
+    public boolean deleteCustomer(String id) throws SQLException, ClassNotFoundException {
+        return customerDAO.delete(id);
+    }
+
+    public boolean checkCustomerIsAvailable(String id) throws SQLException, ClassNotFoundException {
+        return customerDAO.exist(id);
+    }
+
+    public String generateNewCustomerId() throws SQLException, ClassNotFoundException {
+        return customerDAO.generateNewId();
+    }
 }
