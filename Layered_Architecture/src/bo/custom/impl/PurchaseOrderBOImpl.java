@@ -1,5 +1,6 @@
-package bo;
+package bo.custom.impl;
 
+import bo.custom.PurchaseOrderBO;
 import dao.custom.*;
 import dao.custom.impl.CustomerDAOImpl;
 import dao.custom.impl.ItemDAOImpl;
@@ -50,9 +51,8 @@ public class PurchaseOrderBOImpl implements PurchaseOrderBO {
                     return false;
                 }
 
-//                //Search & Update Item
-                //ItemDTO item = findItem(detail.getItemCode());
-                ItemDTO item = null;
+                //Search & Update Item
+                ItemDTO item = searchItem(detail.getItemCode());
                 item.setQtyOnHand(item.getQtyOnHand() - detail.getQty());
 
                 //Update Item
