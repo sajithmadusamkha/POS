@@ -209,11 +209,9 @@ public class ManageItemsFormController {
         btnAddNewItem.fire();
     }
 
-
     private boolean existItem(String code) throws SQLException, ClassNotFoundException {
         return itemBO.existItem(code);
     }
-
 
     private String generateNewId() {
         try {
