@@ -78,7 +78,7 @@ public class ManageCustomersFormController {
         try {
 
             CustomerBOImpl customerBO = new CustomerBOImpl();
-            ArrayList<CustomerDTO> allCustomers = customerBO.getAllCustomer();
+            customerBO.getAllCustomer()
 
             for(CustomerDTO c : allCustomers){
                 tblCustomers.getItems().add(new CustomerTM(c.getId(), c.getName(), c.getAddress()));
