@@ -14,4 +14,24 @@ public class ItemBOImpl {
     public ArrayList<ItemDTO> getAllItems() throws SQLException, ClassNotFoundException {
         return itemDAO.getAll();
     }
+
+    public boolean deleteItem(String code) throws SQLException, ClassNotFoundException {
+        return itemDAO.delete(code);
+    }
+
+    public boolean saveItem(ItemDTO itemDTO) throws SQLException, ClassNotFoundException {
+        return itemDAO.save(itemDTO);
+    }
+
+    public boolean updateItem(ItemDTO itemDTO) throws SQLException, ClassNotFoundException {
+        return itemDAO.update(itemDTO);
+    }
+
+    public boolean existItem(String code) throws SQLException, ClassNotFoundException {
+        return itemDAO.exist(code);
+    }
+
+    public String generateNewItemCode() throws SQLException, ClassNotFoundException {
+        return itemDAO.generateNewId();
+    }
 }
