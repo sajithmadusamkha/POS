@@ -1,5 +1,6 @@
 package controller;
 
+import bo.CustomerBOImpl;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import dao.CrudDAO;
@@ -42,7 +43,7 @@ public class ManageCustomersFormController {
     public TableView<CustomerTM> tblCustomers;
     public JFXButton btnAddNewCustomer;
 
-    private CustomerDAO crudDao = new CustomerDAOImpl();
+
 
     public void initialize() {
         tblCustomers.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -76,7 +77,8 @@ public class ManageCustomersFormController {
         /*Get all customers*/
         try {
 
-            ArrayList<CustomerDTO> allCustomers = crudDao.getAll();
+            CustomerBOImpl customerBO = new CustomerBOImpl();
+            ArrayList<CustomerDTO> allCustomers = customerBO.getAllCustomer();
 
             for(CustomerDTO c : allCustomers){
                 tblCustomers.getItems().add(new CustomerTM(c.getId(), c.getName(), c.getAddress()));
