@@ -3,8 +3,6 @@ package bo;
 import bo.custom.impl.CustomerBOImpl;
 import bo.custom.impl.ItemBOImpl;
 import bo.custom.impl.PurchaseOrderBOImpl;
-import dao.SuperDAO;
-import dao.custom.impl.*;
 
 public class BOFactory {
     private static BOFactory boFactory;
