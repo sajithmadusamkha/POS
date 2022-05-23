@@ -3,7 +3,7 @@ package lk.ijse.pos.entity;
 import java.math.BigDecimal;
 
 public class OrderDetails {
-    private String oId;
+    private String oid;
     private String itemCode;
     private int qty;
     private BigDecimal unitPrice;
@@ -11,19 +11,19 @@ public class OrderDetails {
     public OrderDetails() {
     }
 
-    public OrderDetails(String oId, String itemCode, int qty, BigDecimal unitPrice) {
-        this.oId = oId;
+    public OrderDetails(String oid, String itemCode, int qty, BigDecimal unitPrice) {
+        this.oid = oid;
         this.itemCode = itemCode;
         this.qty = qty;
         this.unitPrice = unitPrice;
     }
 
-    public String getoId() {
-        return oId;
+    public String getOid() {
+        return oid;
     }
 
-    public void setoId(String oId) {
-        this.oId = oId;
+    public void setOid(String oid) {
+        this.oid = oid;
     }
 
     public String getItemCode() {
