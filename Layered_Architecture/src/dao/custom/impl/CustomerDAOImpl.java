@@ -3,45 +3,46 @@ package dao.custom.impl;
 import dao.SQLUtil;
 import dao.custom.CustomerDAO;
 import dto.CustomerDTO;
+import entity.Customer;
 
 import java.sql.*;
 import java.util.ArrayList;
 
 public class CustomerDAOImpl implements CustomerDAO {
     @Override
-    public ArrayList<CustomerDTO> getAllCustomersByAddress(String address) {
+    public ArrayList<Customer> getAllCustomersByAddress(String address) {
         return null;
     }
 
     @Override
-    public ArrayList<CustomerDTO> getAll() throws SQLException, ClassNotFoundException {
+    public ArrayList<Customer> getAll() throws SQLException, ClassNotFoundException {
         ResultSet rst = SQLUtil.executeQuery("SELECT * FROM Customer");
-            ArrayList<CustomerDTO> allCustomer = new ArrayList<>();
+            ArrayList<Customer> allCustomer = new ArrayList<>();
             while (rst.next()){
                 String id = rst.getString(1);
                 String name = rst.getString(2);
                 String address = rst.getString(3);
-                allCustomer.add(new CustomerDTO(id,name,address));
+                allCustomer.add(new Customer(id,name,address));
             }
             return allCustomer;
     }
 
     @Override
-    public CustomerDTO search(String id) throws SQLException, ClassNotFoundException {
+    public Customer search(String id) throws SQLException, ClassNotFoundException {
         ResultSet rst = SQLUtil.executeQuery("SELECT * FROM Customer WHERE id=?", id);
         if(rst.next()){
-            return new CustomerDTO(rst.getString(1),rst.getString(2),rst.getString(3));
+            return new Customer(rst.getString(1),rst.getString(2),rst.getString(3));
         }
         return null;
     }
 
     @Override
-    public boolean save(CustomerDTO dto) throws SQLException, ClassNotFoundException {
+    public boolean save(Customer dto) throws SQLException, ClassNotFoundException {
         return SQLUtil.executeUpdate("INSERT INTO Customer (id,name, address) VALUES (?,?,?)",dto.getId(),dto.getName(),dto.getAddress());
     }
 
     @Override
-    public boolean update(CustomerDTO dto) throws SQLException, ClassNotFoundException {
+    public boolean update(Customer dto) throws SQLException, ClassNotFoundException {
         return SQLUtil.executeUpdate("UPDATE Customer SET name=?, address=? WHERE id=?",dto.getName(),dto.getAddress(),dto.getId());
     }
 
